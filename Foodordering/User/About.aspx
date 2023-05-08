@@ -34,9 +34,7 @@
 
               <p>
                   We usually closes at 3pm, but stalls close by 3pm if the food has run out.
-            <a href="">
-              Read More
-            </a>
+            
           </div>
         </div>
       </div>

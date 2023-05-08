@@ -49,6 +49,10 @@
     <Reference Include="Google.Protobuf, Version=3.21.9.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.21.9\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=4.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\document\Download Invoice(Food Ordering)\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
     </Reference>
@@ -175,6 +179,7 @@
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\Product.aspx" />
     <Content Include="Admin\Status.aspx" />
+    <Content Include="Admin\Users.aspx" />
     <Content Include="App_Data\Foodordering.mdf" />
     <Content Include="App_Data\Foodordering_log.ldf">
       <DependentUpon>Foodordering.mdf</DependentUpon>
@@ -371,8 +376,11 @@
     <Content Include="User\Booking.aspx" />
     <Content Include="User\Cart.aspx" />
     <Content Include="User\Default.aspx" />
+    <Content Include="User\Invoice.aspx" />
     <Content Include="User\Login.aspx" />
     <Content Include="User\Menu.aspx" />
+    <Content Include="User\Payment.aspx" />
+    <Content Include="User\Profile.aspx" />
     <Content Include="User\Registration.aspx" />
     <Content Include="User\SliderUserControl.ascx" />
     <Content Include="Web.config" />
@@ -420,6 +428,13 @@
     <Compile Include="Admin\Status.aspx.designer.cs">
       <DependentUpon>Status.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="foogorder.cs">
       <DependentUpon>foogorder.xsd</DependentUpon>
@@ -461,6 +476,13 @@
     <Compile Include="User\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Invoice.aspx.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Invoice.aspx.designer.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -474,6 +496,20 @@
     </Compile>
     <Compile Include="User\Menu.aspx.designer.cs">
       <DependentUpon>Menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
@@ -541,6 +577,8 @@
     <Folder Include="assets\images\Category\" />
     <Folder Include="assets\images\Product\" />
     <Folder Include="Images\Category\" />
+    <Folder Include="Images\Product\" />
+    <Folder Include="Images\User\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

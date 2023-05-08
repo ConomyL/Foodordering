@@ -53,7 +53,7 @@ namespace Foodordering.Admin
                 {
                     Guid obj = Guid.NewGuid();
                     fileExension = Path.GetExtension(fuCategoryImage.FileName);
-                    imagePath = "Image/Category/" + obj.ToString() + fileExension;
+                    imagePath = "Images/Category/" + obj.ToString() + fileExension;
                     fuCategoryImage.PostedFile.SaveAs(Server.MapPath("~/Images/Category/") + obj.ToString() + fileExension);
                     cmd.Parameters.AddWithValue("@ImageUrl", imagePath);
                     isValidToExecute = true;
@@ -103,7 +103,7 @@ namespace Foodordering.Admin
         {
             conn = new SqlConnection(Connection.GetConnectionString());
             cmd = new SqlCommand("Category_Crud", conn);
-            cmd.Parameters.AddWithValue("@Active", "SELECT");
+            cmd.Parameters.AddWithValue("@Action", "SELECT");
             cmd.CommandType = CommandType.StoredProcedure;
             sda = new SqlDataAdapter(cmd);
             dt = new DataTable();
@@ -133,7 +133,7 @@ namespace Foodordering.Admin
             if (e.CommandName == "edit")
             {
                 
-                cmd = new SqlCommand("CategoryId_Crud", conn);
+                cmd = new SqlCommand("Category_Crud", conn);
                 cmd.Parameters.AddWithValue("@Action", "GETBYID");
                 cmd.Parameters.AddWithValue("@CategoryId", e.CommandArgument);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -142,19 +142,20 @@ namespace Foodordering.Admin
                 sda.Fill(dt);
                 txtName.Text = dt.Rows[0]["Name"].ToString();
                 cbIsActive.Checked = Convert.ToBoolean(dt.Rows[0]["IsActive"]);
-                imgCategory.ImageUrl = string.IsNullOrEmpty(dt.Rows[0]["ImageUrl"].ToString()) ? "../Images/No_imagw.png" : "../" + dt.Rows[0]["ImageUrl"].ToString();
+                imgCategory.ImageUrl = string.IsNullOrEmpty(dt.Rows[0]["ImageUrl"].ToString()) ? "../Images/No_image.png" : "../" + dt.Rows[0]["ImageUrl"].ToString();
                 imgCategory.Height = 200;
                 imgCategory.Width = 200;
                 hdnId.Value = dt.Rows[0]["CategoryId"].ToString();
                 btnAddOrUpdate.Text = "Update";
-                LinkButton btn = e.Item.FindControl("inkEdit") as LinkButton;
-                btn.CssClass = "badge-warning";
+                LinkButton btn = e.Item.FindControl("lnkEdit") as LinkButton;
+                btn.CssClass = "badge badge-warning";
             }
             else if (e.CommandName == "delete")
             {
                 //conn = new SqlConnection(Connection.GetConnectionString());
                 cmd = new SqlCommand("Category_Crud", conn);
-                cmd.Parameters.AddWithValue("@Active", "DELETE");
+                cmd.Parameters.AddWithValue("@Action", "DELETE");
+                cmd.Parameters.AddWithValue("CategoryId", e.CommandArgument);
                 cmd.CommandType = CommandType.StoredProcedure;
                 try
                 {

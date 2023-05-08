@@ -43,7 +43,7 @@ namespace Foodordering.Admin
             cmd = new SqlCommand("Product_Crud", conn);
             cmd.Parameters.AddWithValue("@Action", ProductId == 0 ? "Insert" : "UPDATE");
             cmd.Parameters.AddWithValue("@ProductId", ProductId);
-            cmd.Parameters.AddWithValue("@UserName", txtName.Text.Trim());
+            cmd.Parameters.AddWithValue("@Name", txtName.Text.Trim());
             cmd.Parameters.AddWithValue("@Description", txtDecription.Text.Trim());
             cmd.Parameters.AddWithValue("@Price", txtPrice.Text.Trim());
             cmd.Parameters.AddWithValue("@Quantity", txtQuantity.Text.Trim());
@@ -55,8 +55,8 @@ namespace Foodordering.Admin
                 {
                     Guid obj = Guid.NewGuid();
                     fileExension = Path.GetExtension(fuProductImage.FileName);
-                    imagePath = "Image/Product/" + obj.ToString() + fileExension;
-                    fuProductImage.PostedFile.SaveAs(Server.MapPath("~/Image/Product/") + obj.ToString() + fileExension);
+                    imagePath = "Images/Product/" + obj.ToString() + fileExension;
+                    fuProductImage.PostedFile.SaveAs(Server.MapPath("~/Images/Product/") + obj.ToString() + fileExension);
                     cmd.Parameters.AddWithValue("@ImageUrl", imagePath);
                     isValidToExecute = true;
                 }
@@ -114,11 +114,11 @@ namespace Foodordering.Admin
         {
             conn = new SqlConnection(Connection.GetConnectionString());
             cmd = new SqlCommand("Product_Crud", conn);
-            cmd.Parameters.AddWithValue("@Active", "SELECT");
+            cmd.Parameters.AddWithValue("@Action", "SELECT");
             cmd.CommandType = CommandType.StoredProcedure;
             sda = new SqlDataAdapter(cmd);
             dt = new DataTable();
-            //sda.Fill(dt);
+            sda.Fill(dt);
             rProduct.DataSource = dt;
             rProduct.DataBind();
         }
@@ -148,14 +148,14 @@ namespace Foodordering.Admin
             if (e.CommandName == "edit")
             {
 
-                cmd = new SqlCommand("ProductId_Crud", conn);
+                cmd = new SqlCommand("Product_Crud", conn);
                 cmd.Parameters.AddWithValue("@Action", "GETBYID");
                 cmd.Parameters.AddWithValue("@ProductId", e.CommandArgument);
                 cmd.CommandType = CommandType.StoredProcedure;
                 sda = new SqlDataAdapter(cmd);
                 dt = new DataTable();
                 sda.Fill(dt);
-                txtName.Text = dt.Rows[0]["UserName"].ToString();
+                txtName.Text = dt.Rows[0]["Name"].ToString();
                 txtDecription.Text = dt.Rows[0]["Description"].ToString();
                 txtPrice.Text = dt.Rows[0]["Price"].ToString();
                 txtQuantity.Text = dt.Rows[0]["Quantity"].ToString();
@@ -167,14 +167,15 @@ namespace Foodordering.Admin
                 imgProduct.Width = 200;
                 hdnId.Value = dt.Rows[0]["ProductId"].ToString();
                 btnAddOrUpdate.Text = "Update";
-                LinkButton btn = e.Item.FindControl("inkEdit") as LinkButton;
-                btn.CssClass = "badge-warning";
+                LinkButton btn = e.Item.FindControl("lnkEdit") as LinkButton;
+                btn.CssClass = "badge badge-warning";
             }
             else if (e.CommandName == "delete")
             {
                 //conn = new SqlConnection(Connection.GetConnectionString());
                 cmd = new SqlCommand("Product_Crud", conn);
-                cmd.Parameters.AddWithValue("@Active", "DELETE");
+                cmd.Parameters.AddWithValue("@Action", "DELETE");
+                cmd.Parameters.AddWithValue("ProductId", e.CommandArgument);
                 cmd.CommandType = CommandType.StoredProcedure;
                 try
                 {

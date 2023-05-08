@@ -24,22 +24,49 @@ namespace Foodordering.User
         protected global::System.Web.UI.WebControls.Label lblMsg;
 
         /// <summary>
-        /// txtUserName control.
+        /// lblHeaderMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserName;
+        protected global::System.Web.UI.WebControls.Label lblHeaderMsg;
 
         /// <summary>
-        /// rfvUserName control.
+        /// rfvName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfvUserName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
+
+        /// <summary>
+        /// revUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revUserName;
+
+        /// <summary>
+        /// txtUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+
+        /// <summary>
+        /// rfvEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
 
         /// <summary>
         /// txtEmail control.
@@ -51,31 +78,13 @@ namespace Foodordering.User
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
-        /// rfvEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfvEmail;
-
-        /// <summary>
-        /// txtMobile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMobile;
-
-        /// <summary>
         /// rfvMobile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfvMobile;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMobile;
 
         /// <summary>
         /// revMobile control.
@@ -87,6 +96,15 @@ namespace Foodordering.User
         protected global::System.Web.UI.WebControls.RegularExpressionValidator revMobile;
 
         /// <summary>
+        /// txtMobile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMobile;
+
+        /// <summary>
         /// fuUserImage control.
         /// </summary>
         /// <remarks>
@@ -94,6 +112,15 @@ namespace Foodordering.User
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fuUserImage;
+
+        /// <summary>
+        /// rfvPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
 
         /// <summary>
         /// txtPassword control.
@@ -105,31 +132,13 @@ namespace Foodordering.User
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
-        /// rfvPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfvPassword;
-
-        /// <summary>
-        /// txtConfirmPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
-
-        /// <summary>
         /// rfvConfirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rfvConfirmPassword;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvConfirmPassword;
 
         /// <summary>
         /// ComparePassword control.
@@ -139,6 +148,15 @@ namespace Foodordering.User
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator ComparePassword;
+
+        /// <summary>
+        /// txtConfirmPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
 
         /// <summary>
         /// btnRegister control.

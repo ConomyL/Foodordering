@@ -13,10 +13,10 @@
                       UTS Cafeteria
                     </h1>
                     <p>
-                      Please enter something :)
+                      Welcome to UTS Cafeteria website. This website aims to provide a more convenient way to order your food after having class :)
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="Menu.aspx" class="btn1">
                         Order Now
                       </a>
                     </div>
@@ -34,10 +34,10 @@
                       UTS Cafeteria
                     </h1>
                     <p>
-                      Please enter something :)
+                      Go through our menu and choose what you want to eat today :)
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="Menu.aspx" class="btn1">
                         Order Now
                       </a>
                     </div>
@@ -55,10 +55,10 @@
                       UTS Cafeteria
                     </h1>
                     <p>
-                        Please enter something :)
+                        Already decide what to eat? Then click the order now button below !!
                       </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="Menu.aspx" class="btn1">
                         Order Now
                       </a>
                     </div>

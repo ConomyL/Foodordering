@@ -192,7 +192,17 @@
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
-                                
+                                 </ul>
+
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">User's List</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li>
+                                    <a href="Users.aspx">
+                                        <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Users</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
                             </ul>
 
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">Product Status</div>
@@ -206,6 +216,7 @@
                                 </li>
                             </ul>
 
+
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">User's Feedback/Query</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
@@ -216,7 +227,7 @@
                                     </a>
                                 </li>
                             </ul>
-
+</div>
                            
                     </nav>
                     <div class="pcoded-content">

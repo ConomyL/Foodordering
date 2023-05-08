@@ -7,7 +7,7 @@
              var seconds = 5;
              setTimeout(function () {
                  document.getElementById("<%=lblMsg.ClientID %>").styple.display = "none";
-            }; seconds * 1000);
+            }, seconds * 1000);
          };
      </script>
 
@@ -36,7 +36,7 @@
                                   ForeColor="Red" Display="Dynamic" SetFocusOnError="true"></asp:RequiredFieldValidator>
                         </div>
                         <div>
-                             <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" placeholder="Enter Password"></asp:TextBox>
+                             <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" placeholder="Enter Password" TextMode="Password"></asp:TextBox>
                              <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Password is required" ControlToValidate="txtPassword"
                                  ForeColor="Red" Display="Dynamic" SetFocusOnError="true"></asp:RequiredFieldValidator>
                         </div>

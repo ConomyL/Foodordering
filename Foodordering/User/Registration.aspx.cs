@@ -10,6 +10,7 @@ using System.Xml.Linq;
 using Foodordering.Admin;
 using System.IO;
 using System.Security.Cryptography;
+using System.Linq.Expressions;
 
 namespace Foodordering.User
 {
@@ -38,12 +39,12 @@ namespace Foodordering.User
         {
             string actionName = string.Empty, imagePath = string.Empty, fileExension = string.Empty;
             bool isValidToExecute = false;
-            int UserId = Convert.ToInt32(Request.QueryString["id"]);
+            int userId = Convert.ToInt32(Request.QueryString["id"]);
             conn = new SqlConnection(Connection.GetConnectionString());
             cmd = new SqlCommand("User_Crud", conn);
-            cmd.Parameters.AddWithValue("@Action", UserId == 0 ? "Insert" : "UPDATE");
-            cmd.Parameters.AddWithValue("@UserId", UserId);
-            cmd.Parameters.AddWithValue("@UserName", txtUserName.Text.Trim());
+            cmd.Parameters.AddWithValue("@Action", userId == 0 ? "Insert" : "UPDATE");
+            cmd.Parameters.AddWithValue("@UserId", userId);
+            cmd.Parameters.AddWithValue("@UserName", txtUsername.Text.Trim());
             cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
             cmd.Parameters.AddWithValue("@Mobile", txtMobile.Text.Trim());
             cmd.Parameters.AddWithValue("@Password", txtPassword.Text.Trim());
@@ -53,8 +54,8 @@ namespace Foodordering.User
                 {
                     Guid obj = Guid.NewGuid();
                     fileExension = Path.GetExtension(fuUserImage.FileName);
-                    imagePath = "Image/Product/" + obj.ToString() + fileExension;
-                    fuUserImage.PostedFile.SaveAs(Server.MapPath("~/Image/User/") + obj.ToString() + fileExension);
+                    imagePath = "Images/User/" + obj.ToString() + fileExension;
+                    fuUserImage.PostedFile.SaveAs(Server.MapPath("~/Images/User/") + obj.ToString() + fileExension);
                     cmd.Parameters.AddWithValue("@ImageUrl", imagePath);
                     isValidToExecute = true;
                 }
@@ -77,19 +78,29 @@ namespace Foodordering.User
                 {
                     conn.Open();
                     cmd.ExecuteNonQuery();
-                    actionName = UserId == 0 ?
+                    actionName = userId == 0 ?
                         "registration is successful! <b><a href='Login.aspx'>Click here</a></b> to do login" :
                         "details updated successful! <b><a href='Profile.aspx'>Can check here</a></b>";
                     lblMsg.Visible = true;
-                    lblMsg.Text = "<b>" + txtUserName.Text.Trim() + "</b>" + actionName;
+                    lblMsg.Text = "<b>" + txtUsername.Text.Trim() + "</b>" + actionName;
                     lblMsg.CssClass = "alert alert-sucess";
-                    if(UserId != 0)
+                    if (userId != 0)
                     {
                         Response.AddHeader("REFRESH", "1;URL=Profile.aspx");
                     }
                     Clear();
                 }
 
+                catch (SqlException ex)
+                {
+                    if (ex.Message.Contains("Violation of UNIQUE KEY constraint"))
+                    {
+                        lblMsg.Visible = true;
+                        lblMsg.Text = "<b>" + txtUsername.Text.Trim() + "</b> username already exists, try new one..!";
+                        lblMsg.CssClass = "alert alert-danger";
+                    }
+
+                }
                 catch (Exception ex)
                 {
                     lblMsg.Visible = true;
@@ -106,15 +117,17 @@ namespace Foodordering.User
         void getUserDetails()
         {
             conn = new SqlConnection(Connection.GetConnectionString());
-            cmd = new SqlCommand("User_crud", conn);
+            cmd = new SqlCommand("User_Crud", conn);
             cmd.Parameters.AddWithValue("@Action", "SELECT4PROFILE");
             cmd.Parameters.AddWithValue("@UserId", Request.QueryString["id"]);
             cmd.CommandType = CommandType.StoredProcedure;
+            sda = new SqlDataAdapter(cmd);
+            dt = new DataTable();
             sda.Fill(dt);
-            if(dt.Rows.Count == 1)
+            if (dt.Rows.Count == 1)
             {
-                txtUserName.Text = dt.Rows[0]["UserName"].ToString();
-                txtMobile.Text = dt.Rows[0]["mobile"].ToString();
+                txtUsername.Text = dt.Rows[0]["UserName"].ToString();
+                txtMobile.Text = dt.Rows[0]["Mobile"].ToString();
                 txtEmail.Text = dt.Rows[0]["Email"].ToString();
                 imgUser.ImageUrl = string.IsNullOrEmpty(dt.Rows[0]["ImageUrl"].ToString()) ? "../Images/No_image.png" : "../" + dt.Rows[0]["ImageUrl"].ToString();
                 imgUser.Height = 200;
@@ -123,15 +136,18 @@ namespace Foodordering.User
                 txtPassword.ReadOnly = true;
                 txtPassword.Text = dt.Rows[0]["Password"].ToString();
             }
-            
+            lblHeaderMsg.Text = "<h2>Edit Profile</h2>";
             btnRegister.Text = "Update";
             lblAlreadyUser.Text = " ";
         }
 
         private void Clear()
         {
-           
-
+            txtUsername.Text = string.Empty;
+            txtMobile.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            txtPassword.Text = string.Empty;
+            txtConfirmPassword.Text = string.Empty;
         }
     }
 }

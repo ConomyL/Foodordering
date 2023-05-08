@@ -8,7 +8,7 @@
             var seconds = 5;
             setTimeout(function () {
                 document.getElementById("<%=lblMsg.ClientID %>").styple.display = "none";
-            }; seconds * 1000);
+            }, seconds * 1000);
         };
     </script>
     <script>
@@ -50,7 +50,7 @@
                                                     <label>Category Name</label>
                                                     <div>
                                                         <asp:TextBox ID="txtName" runat="server" CssClass="form-control"
-                                                            placeholder="Enter Category Name" required></asp:TextBox>
+                                                            placeholder="Enter Category Name" required=""></asp:TextBox>
                                                         <asp:HiddenField ID="hdnId" runat="server" Value="0" />
 
                                                     </div>
@@ -113,10 +113,10 @@
                                                                 <td> <%# Eval("CreatedDate") %> </td>
                                                                 <td>
                                                                     <asp:LinkButton ID="lnkEdit" Text="Edit" runat="server" CssClass="badge badge-primary"
-                                                                        CommandArgument='<%# Eval("CategortId") %>' CommandName="edit">
+                                                                        CommandArgument='<%# Eval("CategoryId") %>' CommandName="edit">
                                                                         <i class="ti-pencil"></i>
                                                                     </asp:LinkButton>
-                                                                    <asp:LinkButton ID="LinkDelete" Text="Delete" runat="server" CommandName="delete"
+                                                                    <asp:LinkButton ID="lnkDelete" Text="Delete" runat="server" CommandName="delete"
                                                                         CssClass="badge bg-danger" CommandArgument='<%# Eval("CategoryId") %>'
                                                                         OnClientClick="return confirm('Do you want to delete this category?');">
                                                                         <i class="ti-trash"></i>

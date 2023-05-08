@@ -8,7 +8,7 @@
              var seconds = 5;
              setTimeout(function () {
                  document.getElementById("<%=lblMsg.ClientID %>").styple.display = "none";
-            }; seconds * 1000);
+            }, seconds * 1000);
          };
      </script>
     <script>
@@ -107,7 +107,7 @@
                                                     <label>Product Catogery</label>
                                                     <div>
                                                         <asp:DropDownList ID="ddlCategories" runat="server" CssClass="form-control" 
-                                                            DataSourceID="SqlDataSource1" DataTextField="UserName" DataValueField="CategoryId"
+                                                            DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="CategoryId"
                                                             AppendDataBoundItems="true" >
                                                             <asp:ListItem Value="0">Select Category</asp:ListItem>
                                                         </asp:DropDownList>
@@ -115,8 +115,8 @@
                                                             ErrorMessage="Category is required" SetFocusOnError="true" Display="Dynamic"
                                                             ControlToValidate="ddlCategories" InitialValue="0">
                                                         </asp:RequiredFieldValidator>
-                                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:YZProjectConnectionString7 %>" 
-                                                            SelectCommand="SELECT [CategoryId], [UserName] FROM [Category]"></asp:SqlDataSource>
+                                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FoodDatabaseConnectionString6 %>" 
+                                                            SelectCommand="SELECT [CategoryId], [Name] FROM [Categories]"></asp:SqlDataSource>
                                                     </div>
                                                 </div>
                                                  <div class="form-check pl-4">
@@ -162,7 +162,7 @@
                                                         </HeaderTemplate>
                                                         <ItemTemplate>
                                                             <tr>
-                                                                <td> <%# Eval("UserName") %> </td>
+                                                                <td> <%# Eval("Name") %> </td>
                                                                 <td> 
                                                                     <img alt=""  width="40" src=" <%# Utils.GetImageUrl(Eval("ImageUrl")) %>" />
 
@@ -182,7 +182,7 @@
                                                                         CommandArgument='<%# Eval("ProductId") %>' CommandName="edit">
                                                                         <i class="ti-pencil"></i>
                                                                     </asp:LinkButton>
-                                                                    <asp:LinkButton ID="LinkDelete" Text="Delete" runat="server" CommandName="delete"
+                                                                    <asp:LinkButton ID="lnkDelete" Text="Delete" runat="server" CommandName="delete"
                                                                         CssClass="badge bg-danger" CommandArgument='<%# Eval("ProductId") %>'
                                                                         OnClientClick="return confirm('Do you want to delete this product?');"
                                                                         CausesValidation="false" >

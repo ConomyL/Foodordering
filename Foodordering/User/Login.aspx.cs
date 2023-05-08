@@ -18,15 +18,10 @@ namespace Foodordering.User
         DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserId"] != null)
+            if (Session["userId"] != null)
             {
                 Response.Redirect("Default.aspx");
-            }
-            if (txtUserName.Text.Trim() == "test" && txtPassword.Text.Trim() == "123")
-            {
-                Session["test"] = txtUserName.Text.Trim();
-                Response.Redirect("Default.aspx");
-            }
+            } 
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -51,7 +46,7 @@ namespace Foodordering.User
                 if(dt.Rows.Count == 1)
                 {
                     Session["Username"] = txtUserName.Text.Trim();
-                    Session["UserId"] = dt.Rows[0]["UserId"];
+                    Session["userId"] = dt.Rows[0]["UserId"];
                     Response.Redirect("Default.aspx");
                 }
                 else

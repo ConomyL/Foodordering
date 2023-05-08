@@ -100,6 +100,9 @@
               </li>
             </ul>
             <div class="user_option">
+                <asp:LinkButton ID="lbRegisterOrProfile" runat="server" CssClass="user_link" OnClick="lbRegisterOrProfile_Click" CausesValidation="false" >
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                </asp:LinkButton>
               <a class="cart_link" href="Cart.aspx">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -153,6 +156,9 @@
                   <g>
                   </g>
                 </svg>
+                  <span class="badge round-pill bg-warning mb-4">
+                      <% Response.Write(Session["cartCount"]); %>
+                  </span>
               </a>
               <div class="form-inline">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
@@ -190,31 +196,32 @@
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+                    Located at opposite of the library
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                    Stall 2 (Aunti Ta – 01129971363),          
+                    Stall 3 (Mr. Omar - 0128546098),
+                    Stall 4 (Mr. Zainal - 0163608083), and
+                    Stall 5 (Encik Dayat - 01164826040)
                 </span>
               </a>
-              <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>
-                  demo@gmail.com
-                </span>
-              </a>
+              
             </div>
           </div>
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
             <a href="" class="footer-logo">
-              Feane
+              Eatwhat
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              Website developer:
+                Ling Yi Zhen(01110299603),
+                Lau Meng Ru(0102539004), and 
+                Jasmine Kwo Jia Shian(0168860287)
             </p>
             <div class="footer_social">
               <a href="">
@@ -240,11 +247,10 @@
             Opening Hours
           </h4>
           <p>
-            Everyday
+            Monday to Friday
           </p>
           <p>
-            10.00 Am -10.00 Pm
-          </p>
+            Usually closes at 3pm, but stalls close by 3pm if the food has run out.
         </div>
       </div>
       <div class="footer-info">
