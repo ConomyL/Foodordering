@@ -54,7 +54,7 @@ namespace Foodordering.User
         protected void rCartItem_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             Utils utils = new Utils();
-            if(e.CommandName == "remove")
+            if (e.CommandName == "remove")
             {
                 conn = new SqlConnection(Connection.GetConnectionString());
                 cmd = new SqlCommand("Cart_Crud", conn);
@@ -80,10 +80,10 @@ namespace Foodordering.User
                 }
             }
 
-            if(e.CommandName == "updateCart")
+            if (e.CommandName == "updateCart")
             {
                 bool isCartUpdated = false;
-                for(int item = 0; item < rCartItem.Items.Count; item++)
+                for (int item = 0; item < rCartItem.Items.Count; item++)
                 {
                     if (rCartItem.Items[item].ItemType == ListItemType.Item || rCartItem.Items[item].ItemType == ListItemType.AlternatingItem)
                     {
@@ -95,7 +95,7 @@ namespace Foodordering.User
                         int quantityFromDB = Convert.ToInt32(_quantity.Value);
                         bool isTrue = false;
                         int updatedQuantity = 1;
-                        if(quantityFromCart > quantityFromDB)
+                        if (quantityFromCart > quantityFromDB)
                         {
                             updatedQuantity = quantityFromCart;
                             isTrue = true;
@@ -115,7 +115,7 @@ namespace Foodordering.User
                 getCartItems();
             }
 
-            if(e.CommandName == "checkout")
+            if (e.CommandName == "checkout")
             {
                 bool isTrue = false;
                 string pName = string.Empty;
@@ -123,7 +123,7 @@ namespace Foodordering.User
                 for (int item = 0; item < rCartItem.Items.Count; item++)
                 {
                     if (rCartItem.Items[item].ItemType == ListItemType.Item || rCartItem.Items[item].ItemType == ListItemType.AlternatingItem)
-                    {  
+                    {
                         HiddenField _productId = rCartItem.Items[item].FindControl("hdnProductId") as HiddenField;
                         HiddenField _cartQuantity = rCartItem.Items[item].FindControl("hdnQuantity") as HiddenField;
                         HiddenField _productQuantity = rCartItem.Items[item].FindControl("hdnPrdQuantity") as HiddenField;
@@ -131,12 +131,12 @@ namespace Foodordering.User
                         int productId = Convert.ToInt32(_productId.Value);
                         int cartQuantity = Convert.ToInt32(_cartQuantity.Value);
                         int productQuantity = Convert.ToInt32(_productQuantity.Value);
-          
+
                         if (productQuantity > cartQuantity && productQuantity > 2)
                         {
                             isTrue = true;
                         }
-                        else 
+                        else
                         {
                             isTrue = false;
                             pName = productName.Text.ToString();
@@ -169,7 +169,7 @@ namespace Foodordering.User
                 totalPrice.Text = calTotalPrice.ToString();
                 grandTotal += calTotalPrice;
             }
-            
+
             Session["grandTotalPrice"] = grandTotal;
         }
 
@@ -194,8 +194,8 @@ namespace Foodordering.User
             }
         }
 
-            
-        
-    
+
+
+
     }
 }

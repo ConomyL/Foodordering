@@ -164,7 +164,7 @@
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
                                     <a href="Dashboard.aspx">
-                                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                                        <span class="pcoded-micon"><i class="icofont icofont-ui-home"></i><b>D</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
@@ -175,7 +175,7 @@
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
                                     <a href="Category.aspx">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                        <span class="pcoded-micon"><i class="icofont icofont-food-cart"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Category</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
@@ -187,7 +187,7 @@
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
                                     <a href="Product.aspx">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                        <span class="pcoded-micon"><i class="icofont icofont-fast-food"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Product</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
@@ -198,7 +198,7 @@
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
                                     <a href="Users.aspx">
-                                        <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                        <span class="pcoded-micon"><i class="icofont icofont-user"></i><b>M</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Users</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
@@ -209,7 +209,7 @@
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
                                     <a href="Status.aspx">
-                                        <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                        <span class="pcoded-micon"><i class="icofont icofont-cart"></i><b>M</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Update Status</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
@@ -221,7 +221,7 @@
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
                                     <a href="Contact.aspx">
-                                        <span class="pcoded-micon"><i class="ti-direction-alt"></i><b>M</b></span>
+                                        <span class="pcoded-micon"><i class="icofont icofont-phone"></i><b>M</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.menu-levels.main">Contact</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>

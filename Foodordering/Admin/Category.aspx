@@ -15,12 +15,12 @@
         function ImagePreview(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                reader.omload = function (e) {
+                reader.onload = function (e) {
                     $('#<%=imgCategory.ClientID%>').prop('src', e.target.result)
                         .width(200)
                         .height(200);
                 };
-                reader.readAsDataURL(input.Files[0]);
+                reader.readAsDataURL(input.files[0]);
             }
         }
     </script>
@@ -44,13 +44,13 @@
                                     <div class="row">
 
                                         <div class="col-sm-6 col-md-4 col-lg-4">
-                                            <h4 class="sub-title">Categary</h4>
+                                            <h4 class="sub-title">Category</h4>
                                             <div>
                                                 <div class="form-group">
                                                     <label>Category Name</label>
                                                     <div>
                                                         <asp:TextBox ID="txtName" runat="server" CssClass="form-control"
-                                                            placeholder="Enter Category Name" required=""></asp:TextBox>
+                                                            placeholder="Enter Category Name" ></asp:TextBox>
                                                         <asp:HiddenField ID="hdnId" runat="server" Value="0" />
 
                                                     </div>

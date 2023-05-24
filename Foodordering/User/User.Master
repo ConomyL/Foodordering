@@ -39,7 +39,7 @@
   <link href="../TemplateFiles/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="../TemplateFiles/css/responsive.css" rel="stylesheet" />
-  <!-- jQery -->
+  <!-- jQuery -->
   <script src="../TemplateFiles/js/jquery-3.4.1.min.js"></script>
     
 
@@ -67,7 +67,7 @@
         
         <div class="hero_area">
     <div class="bg-box">
-      <img src="../TemplateFiles/images/img1.jpg" alt="">
+      <img src="../TemplateFiles/images/Ca.jpg" alt="">
         </div>
        
     <!-- header section strats -->
@@ -96,7 +96,7 @@
                 <a class="nav-link" href="About.aspx">About</a>
               </li>
                 <li class="nav-item">
-                <a class="nav-link" href="Booking.aspx">Contact</a>
+                <a class="nav-link" href="Feedback.aspx">Contact</a>
               </li>
             </ul>
             <div class="user_option">
@@ -156,15 +156,12 @@
                   <g>
                   </g>
                 </svg>
-                  <span class="badge round-pill bg-warning mb-4">
+                  <span class="badge rounded-pill bg-warning mb-4">
                       <% Response.Write(Session["cartCount"]); %>
                   </span>
               </a>
-              <div class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </div>
+                
+              
             
                   <asp:LinkButton ID="lbLoginOrLogout" runat="server" CssClass="order_online" CausesValidation="false"
                       Onclick="lbLoginOrLogout_Click"></asp:LinkButton>
@@ -193,13 +190,13 @@
               Contact Us
             </h4>
             <div class="contact_link_box">
-              <a href="">
+              <a href="#">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                    Located at opposite of the library
+                    Located opposite the library
                 </span>
               </a>
-              <a href="">
+              <a href="#">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
                     Stall 2 (Aunti Ta – 01129971363),          
@@ -214,32 +211,13 @@
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
+            <a href="#" class="footer-logo">
               Eatwhat
             </a>
             <p>
-              Website developer:
-                Ling Yi Zhen(01110299603),
-                Lau Meng Ru(0102539004), and 
-                Jasmine Kwo Jia Shian(0168860287)
+              Website developers: Ling Yi Zhen (01110299603), Lau Meng Ru (0102539004), and Jasmine Kwo Jia Shian (0168860287)
             </p>
-            <div class="footer_social">
-              <a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-pinterest" aria-hidden="true"></i>
-              </a>
-            </div>
+           
           </div>
         </div>
         <div class="col-md-4 footer-col">
@@ -253,14 +231,7 @@
             Usually closes at 3pm, but stalls close by 3pm if the food has run out.
         </div>
       </div>
-      <div class="footer-info">
-        <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br><br>
-          &copy; <span id="displayYear"></span> Distributed By
-          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
-        </p>
-      </div>
+     
     </div>
   </footer>
   <!-- footer section -->

@@ -15,12 +15,12 @@
         function ImagePreview(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                reader.omload = function (e) {
+                reader.onload = function (e) {
                     $('#<%=imgProduct.ClientID%>').prop('src', e.target.result)
                         .width(200)
                         .height(200);
                 };
-                reader.readAsDataURL(input.Files[0]);
+                reader.readAsDataURL(input.files[0]);
             }
         }
     </script>

@@ -1,52 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/User.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Foodordering.User.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
+    <script>
+        /*For disappearing alert message*/
+        window.onload = function () {
+            var seconds = 5;
+            setTimeout(function () {
+                document.getElementById("<%=lblMsg.ClientID %>").styple.display = "none";
+             }, seconds * 1000);
+        };
+    </script>
    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    
-
-
-    <!-- about section -->
-
-  <section class="about_section layout_padding">
-    <div class="container  ">
-
-      <div class="row">
-        <div class="col-md-6 ">
-          <div class="img-box">
-            <img src="../TemplateFiles/images/img4.jpg" alt="">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="detail-box">
-            <div class="heading_container">
-              <h2>
-                Welcome to EatWhat website
-              </h2>
-            </div>
-            <p>
-              This website aims to provide food ordering service of UTS cafeteria to UTS students, lecturers and staffs. 
-              
-              In UTS cafeteria, there are 5 stalls being provided.
-              Kindly remind that the sequence of stalls is counting from the front door of the cafeteria to the end of the cafeteria
-            </p>
-
-            <h4>
-                Operation hours
-            </h4>
-
-              <p>
-                  We usually closes at 3pm, but stall close by 3pm if the food has run out.
-            
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end about section -->
+   
 
      <!-- food section -->
 
@@ -161,47 +127,85 @@
   </section>
 
   <!-- end food section -->
+     <!-- about section -->
 
-      <!-- book section -->
-  <section class="book_section layout_padding">
-    <div class="container">
-      <div class="heading_container">
-        <h2>
-          Send Your Query
-        </h2>
-      </div>
+  <section class="about_section layout_padding">
+    <div class="container  ">
+
       <div class="row">
-        <div class="col-md-6">
-          <div class="form_container">
-            <form action="">
-              <div>
-                <input type="text" class="form-control" placeholder="Your Name" />
-              </div>
-              <div>
-                <input type="text" class="form-control" placeholder="Phone Number" />
-              </div>
-              <div>
-                <input type="email" class="form-control" placeholder="Subject" />
-              </div>
-              <div>
-                <textarea id="text" class="form-control" placeholder="Enter Your Feedback" name="text" rows="4" cols="50" required></textarea><br><br>
-              </div>
-              <div class="btn_box">
-                <button>
-                  Submit
-                </button>
-              </div>
-            </form>
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="../TemplateFiles/images/img4.jpg" alt="">
           </div>
         </div>
         <div class="col-md-6">
-          <div class="map_container ">
-            <div id="googleMap"></div>
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                Welcome to EatWhat website
+              </h2>
+            </div>
+            <p>
+              This website aims to provide food ordering service of UTS cafeteria to UTS students, lecturers and staffs. 
+              
+              In UTS cafeteria, there are 5 stalls being provided.
+              Kindly remind that the sequence of stalls is counting from the front door of the cafeteria to the end of the cafeteria
+            </p>
+
+            <h4>
+                Operation hours
+            </h4>
+
+              <p>
+                  We usually closes at 3pm, but stall close by 3pm if the food has run out.
+            
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- end about section -->
+
+
+      <!-- book section -->
+  <section class="book_section layout_padding">
+        <div class="container">
+            <div class="heading_container">
+                <div class="align-self-end">
+                    <asp:Label runat="server" ID="Label1"></asp:Label>
+                </div>
+                <h2>User Feedback</h2>
+            </div>
+            <div class="row">
+                    <div class="form_container">
+                        <div>
+                             <asp:TextBox ID="txtUserName" runat="server" CssClass="form-control" placeholder="Enter UserName"></asp:TextBox>
+                             
+                            <asp:HiddenField ID="hdnId" runat="server" Value="0" />
+                        </div>
+                        <div>
+                             <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="Enter Email" TextMode="Email"></asp:TextBox>
+                             
+                        </div>
+                        <div>
+                             <asp:TextBox ID="txtSubject" runat="server" CssClass="form-control" placeholder="Enter Subject"></asp:TextBox>
+                             
+                        </div>
+                        <div>
+                             <asp:TextBox ID="txtFeedback" runat="server" CssClass="form-control" placeholder="Enter Feedback" TextMode="MultiLine" ></asp:TextBox>
+                             
+                        </div>
+                        <div class="btn_box">
+                            <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-warning rounded-pill pl-4 pr-4 text-white" 
+                                Onclick="btnSubmit_Click" />
+                            <asp:Button ID="btnClear" runat="server" Text="Clear" CssClass="btn btn-warning rounded-pill pl-4 pr-4 text-white" CauseValidation="false" onclick="btnClear_Click"/>
+                                                </div>
+                        </div>
+                    </div>
+                </div>
+        
+    </section>
   <!-- end book section -->
 
 

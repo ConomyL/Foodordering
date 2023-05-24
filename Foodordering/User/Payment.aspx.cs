@@ -64,8 +64,7 @@ namespace Foodordering.User
         {
             int paymentId; int productId; int quantity;
             dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[7]
-            {
+            dt.Columns.AddRange(new DataColumn[7] {
                 new DataColumn("OrderNo", typeof(string)),
                 new DataColumn("ProductId", typeof(int)),
                 new DataColumn("Quantity", typeof(int)),
@@ -113,18 +112,16 @@ namespace Foodordering.User
                     DeleteCartItem(productId, transaction, conn);
                     // Delete  Cart Item End
 
-                    dt.Rows.Add(Utils.GetUniqueId(), productId, quantity, (int)Session["userId"], "Pending",
-                        paymentId, Convert.ToDateTime(DateTime.Now));
+                    dt.Rows.Add(Utils.GetUniqueId(), productId, quantity, (int)Session["userId"], "Pending", paymentId, Convert.ToDateTime(DateTime.Now));
                 }
                 dr.Close();
-                
                 #endregion Getting Cart Item's
 
                 #region Order Details
                 if (dt.Rows.Count > 0)
                 {
                     cmd = new SqlCommand("Save_Orders", conn, transaction);
-                    cmd.Parameters.AddWithValue("@tblOrders", dt);
+                    cmd.Parameters.AddWithValue("@tb1Orders", dt);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -134,9 +131,9 @@ namespace Foodordering.User
                 lblMsg.Visible = true;
                 lblMsg.Text = "Your item ordered successful!!!";
                 lblMsg.CssClass = "alert alert-success";
-                Response.AddHeader("REFRESH", "1;URL=Invoice.aspx?id= " + paymentId);
+                Response.AddHeader("REFRESH", "1;URL=Invoice.aspx?id=" + paymentId);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 try
                 {

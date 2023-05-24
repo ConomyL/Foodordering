@@ -1,10 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/User.Master" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="Foodordering.User.Cart" %>
 <%@ Import Namespace="Foodordering" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <section class="book_section layout_padding">
         <div class="container">
             <div class="heading_container">
@@ -14,7 +12,6 @@
                 <h2>Your Shopping Cart</h2>
             </div>
         </div>
-
         <div class="container">
             <asp:Repeater ID="rCartItem" runat="server" OnItemCommand="rCartItem_ItemCommand" OnItemDataBound="rCartItem_ItemDataBound">
                 <HeaderTemplate>
@@ -23,16 +20,13 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Image</th>
-                                <th>Unit Price</th>
+                                <th>Unit Price (RM)</th>
                                 <th>Quantity</th>
-                                <th>Total Price</th>
+                                <th>Total Price (RM)</th>
                                 <th></th>
                             </tr>
-
                         </thead>
                         <tbody>
-                            
-                       
                 </HeaderTemplate>
                 <ItemTemplate>
                     <tr>
@@ -91,17 +85,12 @@
                             <asp:LinkButton ID="lblCheckout" runat="server" CommandName="checkout" CssClass="btn btn-success">
                                 Checkout<i class="fa fa-arrow-circle-right ml-2"></i>
                             </asp:LinkButton>
-                        </td>
-                        
+                        </td>  
                     </tr>
-
                     </tbody>
                     </table>
                     </FooterTemplate>
-
             </asp:Repeater>
         </div>
     </section>
-
-
 </asp:Content>

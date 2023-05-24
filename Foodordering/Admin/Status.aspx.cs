@@ -38,7 +38,7 @@ namespace Foodordering.Admin
         private void getOrderStatus()
         {
             conn = new SqlConnection(Connection.GetConnectionString());
-            cmd = new SqlCommand("Invoice", conn);
+            cmd = new SqlCommand("Invoice_Re", conn);
             cmd.Parameters.AddWithValue("@Action", "GETSTATUS");
             cmd.CommandType = CommandType.StoredProcedure;
             sda = new SqlDataAdapter(cmd);
@@ -54,7 +54,7 @@ namespace Foodordering.Admin
             if (e.CommandName == "edit")
             {
                 conn = new SqlConnection(Connection.GetConnectionString());
-                cmd = new SqlCommand("Invoice", conn);
+                cmd = new SqlCommand("Invoice_Re", conn);
                 cmd.Parameters.AddWithValue("@Action", "STATUSBYID");
                 cmd.Parameters.AddWithValue("@OrderDetailsId", e.CommandArgument);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -63,7 +63,7 @@ namespace Foodordering.Admin
                 sda.Fill(dt);
                 ddlOrderStatus.SelectedValue = dt.Rows[0]["Status"].ToString();
                 hdnId.Value = dt.Rows[0]["OrderDetailsId"].ToString();
-                pUpdateOrderStatus.Visible = false;
+                pUpdateOrderStatus.Visible = true;
                 LinkButton btn = e.Item.FindControl("lnkEdit") as LinkButton;
                 btn.CssClass = "badge badge-warning";
             }
@@ -73,7 +73,7 @@ namespace Foodordering.Admin
         {
             int orderDetailsId = Convert.ToInt32(hdnId.Value);
             conn = new SqlConnection(Connection.GetConnectionString());
-            cmd = new SqlCommand("Invoice", conn);
+            cmd = new SqlCommand("Invoice_Re", conn);
             cmd.Parameters.AddWithValue("@Action", "UPDTSTATUS");
             cmd.Parameters.AddWithValue("@OrderDetailsId", orderDetailsId);
             cmd.Parameters.AddWithValue("@Status", ddlOrderStatus.SelectedValue);

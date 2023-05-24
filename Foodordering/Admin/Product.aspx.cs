@@ -38,11 +38,11 @@ namespace Foodordering.Admin
         {
             string actionName = string.Empty, imagePath = string.Empty, fileExension = string.Empty;
             bool isValidToExecute = false;
-            int ProductId = Convert.ToInt32(hdnId.Value);
+            int productId = Convert.ToInt32(hdnId.Value);
             conn = new SqlConnection(Connection.GetConnectionString());
             cmd = new SqlCommand("Product_Crud", conn);
-            cmd.Parameters.AddWithValue("@Action", ProductId == 0 ? "Insert" : "UPDATE");
-            cmd.Parameters.AddWithValue("@ProductId", ProductId);
+            cmd.Parameters.AddWithValue("@Action", productId == 0 ? "INSERT" : "UPDATE");
+            cmd.Parameters.AddWithValue("@ProductId", productId);
             cmd.Parameters.AddWithValue("@Name", txtName.Text.Trim());
             cmd.Parameters.AddWithValue("@Description", txtDecription.Text.Trim());
             cmd.Parameters.AddWithValue("@Price", txtPrice.Text.Trim());
@@ -79,7 +79,7 @@ namespace Foodordering.Admin
                 {
                     conn.Open();
                     cmd.ExecuteNonQuery();
-                    actionName = ProductId == 0 ? "inserted" : "updated";
+                    actionName = productId == 0 ? "inserted" : "updated";
                     lblMsg.Visible = true;
                     lblMsg.Text = "Product" + actionName + "successful!";
                     lblMsg.CssClass = "alert alert-sucess";
@@ -208,7 +208,7 @@ namespace Foodordering.Admin
                 if (lblIsActive.Text == "True")
                 {
                     lblIsActive.Text = "Active";
-                    lblIsActive.CssClass = "badge badge-danger";
+                    lblIsActive.CssClass = "badge badge-success";
                 }
                 else
                 {

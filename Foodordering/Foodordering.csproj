@@ -342,6 +342,7 @@
     <Content Include="assets\pages\widget\amchart\serial.min.js" />
     <Content Include="assets\pages\widget\amchart\worldLow.js" />
     <Content Include="assets\pages\widget\amchart\worldLow.min.js" />
+    <Content Include="custom.js" />
     <Content Include="Global.asax" />
     <Content Include="MindFusion.Diagramming.js" />
     <Content Include="TemplateFiles\css\bootstrap.css" />
@@ -349,6 +350,7 @@
     <Content Include="TemplateFiles\css\responsive.css" />
     <Content Include="TemplateFiles\css\style.css" />
     <Content Include="TemplateFiles\images\about-img.png" />
+    <Content Include="TemplateFiles\images\Ca.jpg" />
     <Content Include="TemplateFiles\images\client1.jpg" />
     <Content Include="TemplateFiles\images\client2.jpg" />
     <Content Include="TemplateFiles\images\f1.png" />
@@ -373,9 +375,9 @@
     <Content Include="TemplateFiles\js\custom.js" />
     <Content Include="TemplateFiles\js\jquery-3.4.1.min.js" />
     <Content Include="User\About.aspx" />
-    <Content Include="User\Booking.aspx" />
     <Content Include="User\Cart.aspx" />
     <Content Include="User\Default.aspx" />
+    <Content Include="User\Feedback.aspx" />
     <Content Include="User\Invoice.aspx" />
     <Content Include="User\Login.aspx" />
     <Content Include="User\Menu.aspx" />
@@ -455,13 +457,6 @@
     <Compile Include="User\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User\Booking.aspx.cs">
-      <DependentUpon>Booking.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\Booking.aspx.designer.cs">
-      <DependentUpon>Booking.aspx</DependentUpon>
-    </Compile>
     <Compile Include="User\Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -476,6 +471,13 @@
     <Compile Include="User\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Feedback.aspx.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Feedback.aspx.designer.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\Invoice.aspx.cs">
       <DependentUpon>Invoice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -485,7 +487,6 @@
     </Compile>
     <Compile Include="User\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>

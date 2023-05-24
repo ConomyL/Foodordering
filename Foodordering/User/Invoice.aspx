@@ -17,7 +17,7 @@
                 <div class="align-self-end">
                     <asp:Label ID ="lblMsg" runat="server" Visible="false"></asp:Label>
                 </div>
-                
+                <h3>Invoice</h3>
             </div>
         </div>
         <div class="container">
@@ -29,9 +29,9 @@
                                 <th>Sr.No</th>
                                 <th>Order Number</th>
                                 <th>Item Number</th>
-                                <th>Unit Price</th>
+                                <th>Unit Price (RM) </th>
                                 <th>Quantity</th>
-                                <th>Total Price</th>
+                                <th>Total Price (RM)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,7 +43,7 @@
                         <td> <%# Eval("Name") %></td>
                         <td> <%# string.IsNullOrEmpty(Eval("Price").ToString()) ? "" : "RM" + Eval("Price") %></td>
                         <td> <%# Eval("Quantity") %></td>
-                        <td> <%# Eval("TotalPrice") %></td>
+                        <td>RM <%# Eval("TotalPrice") %></td>
                     </tr>
                 </ItemTemplate>
                 <FooterTemplate>

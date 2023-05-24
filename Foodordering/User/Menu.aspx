@@ -6,7 +6,7 @@
     
    
 
-   <!-- food section -->
+  <!-- food section -->
 
   <section class="food_section layout_padding">
     <div class="container">

@@ -42,6 +42,7 @@
                                                                     <th>Product Name</th>
                                                                     <th>Total Price</th>
                                                                     <th>Payment Mode</th>
+                                                                    <th>Order Taking Time</th>
                                                                     <th class="datatable-nosort">Edit</th>
                                                                 </tr>
                                                             </thead>
@@ -54,11 +55,12 @@
                                                                     
                                                                 <td>
                                                                     <asp:Label ID="lblStatus" runat="server" Text='<%# Eval("Status") %>' 
-                                                                        CssClass='<%# Eval("Status").ToString()== "Delivered" ? "badge badge-success" : "badge badge-warning" %>' ></asp:Label>
+                                                                        CssClass='<%# Eval("Status").ToString()== "Taken" ? "badge badge-success" : "badge badge-warning"  %>' ></asp:Label>
                                                                 </td>
                                                                 <td> <%# Eval("Name") %> </td>
                                                                 <td> <%# Eval("TotalPrice") %> </td>
                                                                 <td> <%# Eval("PaymentMode") %> </td>
+                                                                <td> <%# Eval("OrderTakingTime") %> </td>
                                                                 <td>
                                                                     <asp:LinkButton ID="lnkEdit" Text="Edit" runat="server" CssClass="badge badge-primary"
                                                                         CommandArgument='<%# Eval("OrderDetailsId") %>' CommandName="edit">
@@ -87,9 +89,10 @@
                                                     <div>
                                                         <asp:DropDownList ID="ddlOrderStatus" runat="server" CssClass="form-control">
                                                             <asp:ListItem Value="0">Select Status</asp:ListItem>
+                                                            <asp:ListItem>Rejected</asp:ListItem>
                                                             <asp:ListItem>Pending</asp:ListItem>
-                                                            <asp:ListItem>Dispatched</asp:ListItem>
-                                                            <asp:ListItem>Delivered</asp:ListItem>
+                                                            <asp:ListItem>Finish Prepared</asp:ListItem>
+                                                            <asp:ListItem>Taken</asp:ListItem>
                                                         </asp:DropDownList>
                                                         <asp:RequiredFieldValidator ID="rfvDdlOrdersStatus" runat="server" ForeColor="Red" ControlToValidate="ddlOrderStatus"
                                                             ErrorMessage="Order status is required" SetFocusOnError="true" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>

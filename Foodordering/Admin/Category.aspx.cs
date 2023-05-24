@@ -43,7 +43,7 @@ namespace Foodordering.Admin
             int categoryId = Convert.ToInt32(hdnId.Value);
             conn = new SqlConnection(Connection.GetConnectionString());
             cmd = new SqlCommand("Category_Crud", conn);
-            cmd.Parameters.AddWithValue("@Action", categoryId == 0 ? "Insert" : "UPDATE");
+            cmd.Parameters.AddWithValue("@Action", categoryId == 0 ? "INSERT" : "UPDATE");
             cmd.Parameters.AddWithValue("@CategoryId", categoryId);
             cmd.Parameters.AddWithValue("@Name", txtName.Text.Trim());
             cmd.Parameters.AddWithValue("@IsActive", cbIsActive.Checked);
@@ -80,7 +80,7 @@ namespace Foodordering.Admin
                     actionName = categoryId == 0 ? "inserted" : "updated";
                     lblMsg.Visible = true;
                     lblMsg.Text = "Category" + actionName + "successfully!";
-                    lblMsg.CssClass = "alert alert-sucess";
+                    lblMsg.CssClass = "alert alert-success";
                     getCategories();
                     clear();
                 }
@@ -187,7 +187,7 @@ namespace Foodordering.Admin
                 if (lbl.Text == "True")
                 {
                     lbl.Text = "Active";
-                    lbl.CssClass = "badge badge-danger";
+                    lbl.CssClass = "badge badge-success";
                 }
                 else
                 {
